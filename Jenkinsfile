@@ -10,11 +10,10 @@ pipeline {
             }
         }
     }
-
+    agent {
+        label "java-gradle-slave-16"
+    }
     stages {
-        agent {
-            dockerfile true
-        }
         stage ('Build docker image') {
                     steps {
                         sh 'docker build -t demo-gradle-pipeline .'
