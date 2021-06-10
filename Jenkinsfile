@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-            sh "gradle -v"
+            sh "sleep 1m"
+            sh "gradle --version"
             sh "gradle clean build"
             }
         }
