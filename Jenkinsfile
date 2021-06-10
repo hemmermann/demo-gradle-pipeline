@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "java-slave-14"
+        label "java-gradle-slave-16"
     }
 
     stages {
