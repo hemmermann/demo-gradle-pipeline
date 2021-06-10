@@ -1,16 +1,19 @@
 pipeline {
-    agent {
-        label "java-gradle-slave-16"
-    }
+
 
     stages {
         stage("Build") {
+
+             agent {
+                    label "java-gradle-slave-16"
+                }
+
             steps {
             sh "./gradlew clean build"
             }
         }
-        agent any
          stage ('Build docker image') {
+            agent any
                             steps {
                                 sh 'docker build -t demo-gradle-pipeline .'
                             }
