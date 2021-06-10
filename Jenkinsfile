@@ -1,11 +1,14 @@
 pipeline {
 
 agent any
- agent {
-                    label "java-gradle-slave-16"
-                }
+
     stages {
         stage("Build") {
+
+             agent {
+                    label "java-gradle-slave-16"
+                }
+
             steps {
             sh "./gradlew clean build"
             }
