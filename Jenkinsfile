@@ -9,6 +9,16 @@ pipeline {
             sh "./gradlew clean build"
             }
         }
+        stage ('Build docker image') {
+            steps {
+                sh 'docker build -t demo-gradle-pipeline .'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                sh 'docker run -d -p 8099:8080 demo-gradle-pipeline'
+            }
+        }
     }
 
     post {
